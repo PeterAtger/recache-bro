@@ -4,6 +4,7 @@ class Recacher {
     errorMessage = document.getElementById('errorsRecache');
     successMessage = document.getElementById('successRecache');
     spinner = document.getElementById('statusRecache');
+    successImage = document.getElementById('successImage');
 
 
     getToken = () => {
@@ -26,7 +27,11 @@ class Recacher {
             return;
         }
 
-        return urls.split('\n');
+        return this.cleanUrls(urls).split('\n');
+    }
+
+    cleanUrls = (urls) => {
+        return urls.replace(/ +|"|,|'/g, '');
     }
 
     postData = (token, urls) => ({
@@ -72,6 +77,7 @@ class Recacher {
         if (response) {
             this.spinner.classList.toggle('hidden')
             this.successMessage.textContent = 'Great work, All Gucci'
+            this.successImage.classList.toggle('hidden')
         }
 
         else {
@@ -84,6 +90,11 @@ class Recacher {
     handleClick = () => {
         this.errorMessage.textContent = '';
         this.successMessage.textContent = '';
+        if (!this.successImage.classList.contains('hidden')) {
+            this.successImage.classList.toggle('hidden')
+        }
+
+
 
         const list = this.getUrls();
 
