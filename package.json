@@ -1,0 +1,17 @@
+{
+  "name": "recache-bro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "build-css": "npx tailwindcss -i ./src/styles.css -o ./public/style.css",
+    "watch-css": "npx tailwindcss -i ./src/styles.css -o ./public/style.css --watch"
+  },
+  "author": "Peter Atef",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwind-forms": "^1.0.6",
+    "tailwindcss": "^3.2.4",
+    "webpack": "^5.75.0"
+  }
+}

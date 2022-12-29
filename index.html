@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reache Pro</title>
+    <meta name="description" content="The pre-render recacher you've always dreamt of. ">
+    <link href="./public/style.css" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="./public/assets/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./public/assets/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./public/assets/favicon_io/favicon-16x16.png">
+</head>
+
+<body id="root">
+    <div class="flex flex-col min-h-screen overflow-hidden">
+        <header class="fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out false">
+            <div class="max-w-6xl mx-auto px-5 sm:px-6">
+                <div class="flex items-center justify-between h-16 md:h-20">
+                    <div class="flex-shrink-0 mr-4">
+                        <a class="block" aria-label="Cruip" href="https://scandiweb.com">
+                            <img src="./public/assets/sw.png" class="w-8 h-8" viewBox="0 0 32 32"
+                                xmlns="http://www.w3.org/2000/svg">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <main class="flex-grow">
+
+            <section class="relative">
+                <img src="./public/assets/unicorn.png" height="320px" width="320px"
+                    class=" absolute bottom-0 left-40 -z-20"></img>
+
+                <div class="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none"
+                    aria-hidden="true"><svg width="1360" height="578" viewBox="0 0 1360 578"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="illustration-01">
+                                <stop stop-color="#FFF" offset="0%"></stop>
+                                <stop stop-color="#EAEAEA" offset="77.402%"></stop>
+                                <stop stop-color="#DFDFDF" offset="100%"></stop>
+                            </linearGradient>
+                        </defs>
+                        <g fill="url(#illustration-01)" fill-rule="evenodd">
+                            <circle cx="1232" cy="128" r="128"></circle>
+                        </g>
+                    </svg></div>
+                <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                    <div class="pt-32 pb-12 md:pt-40 md:pb-20">
+                        <div class="text-center pb-12 md:pb-16">
+                            <h1 class="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4 aos-init aos-animate"
+                                data-aos="zoom-y-out">A Simpler Way To <br />
+                                <span
+                                    class="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-blue-300">re-cache</span>
+                            </h1>
+                            <div class="max-w-3xl mx-auto">
+                                <p class="text-xl text-gray-600 mb-8 aos-init aos-animate" data-aos="zoom-y-out"
+                                    data-aos-delay="150">Just paste your links below, paste your token in place and
+                                    click re-cache.</p>
+                            </div>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+            </section>
+            <section class="relative">
+                <div class="absolute inset-0 bg-gray-100 pointer-events-none mb-16" aria-hidden="true"></div>
+                <div class="absolute left-0 right-0 m-auto w-px p-px h-20 bg-gray-200 transform -translate-y-1/2"></div>
+                <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+                    <div class="pt-12 md:pt-20">
+                        <div class="max-w-3xl mx-auto text-center pb-12 md:pb-16">
+                            <h1 class="h2 text-3xl mb-4">Recache</h1>
+                            <p class="text-xl text-gray-600">If you forgot how to get your token don't worry you can
+                                still go to the notion guide <a
+                                    href="https://www.notion.so/scandiweb/How-to-add-pages-in-bulk-to-prerender-12b8b22d4928465295cdb3892545cf0c"
+                                    class=" bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-blue-500">
+                                    HERE</a>
+                            </p>
+                            <br />
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="relative bg-gray-100 p-8">
+
+                <div class=" justify-around h-full flex flex-col md:flex-row lg:flex-row pt-10">
+
+                    <div class="w-full p-8">
+                        <label for="urlsRecache" class="drop-shadow-lg text-lg py-8">Paste list of urls here :
+                        </label>
+                        <textarea id="urlsRecache" rows="25" class="flex resize-none rounded-md w-full drop-shadow-lg text-xs p-8 text-gray-900 
+                        placeholder=" List of urls here ..."></textarea>
+                    </div>
+
+                    <div class="w-full p-8 flex-col flex">
+                        <div class="w-full ">
+                            <label for="tokenRecache" class="drop-shadow-lg text-lg py-8">Paste token here : </label>
+                            <input id="tokenRecache" class="flex resize-none rounded-md w-full drop-shadow-lg text-lg p-8 text-gray-900 
+                            placeholder=" List of urls here ..."> </input>
+                        </div>
+
+                        <button id="recache"
+                            class="bg-red-500 hover:bg-red-700 text-white font-bold my-8 py-4 px-4 rounded w-full">
+                            Re-cache
+                        </button>
+
+                        <div class="flex-grow text-2xl w-full flex justify-center items-center">
+                            <h2 id='errorsRecache' class="text-red-500">
+                            </h2>
+                            <h2 id='successRecache' class="text-green-500">
+                            </h2>
+                            <div id="statusRecache" role="status" class="hidden">
+                                <svg aria-hidden="true"
+                                    class="mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-red-500"
+                                    viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                                        fill="currentColor" />
+                                    <path
+                                        d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                                        fill="currentFill" />
+                                </svg>
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <script src="./src/index.js"></script>
+
+</body>
+
+
+</html>
