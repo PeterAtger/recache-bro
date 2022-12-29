@@ -15,7 +15,7 @@
 
 <body id="root">
     <div class="flex flex-col min-h-screen overflow-hidden">
-        <header class="fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out false">
+        <header class="fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out false bg-white">
             <div class="max-w-6xl mx-auto px-5 sm:px-6">
                 <div class="flex items-center justify-between h-16 md:h-20">
                     <div class="flex-shrink-0 mr-4">
@@ -87,21 +87,22 @@
             </section>
 
             <section class="relative bg-gray-100 p-8">
-
                 <div class=" justify-around h-full flex flex-col md:flex-row lg:flex-row pt-10">
 
                     <div class="w-full p-8">
-                        <label for="urlsRecache" class="drop-shadow-lg text-lg py-8">Paste list of urls here :
+                        <label for="urlsRecache" class=" text-2xl py-8">
                         </label>
-                        <textarea id="urlsRecache" rows="25" class="flex resize-none rounded-md w-full drop-shadow-lg text-xs p-8 text-gray-900 
-                        placeholder=" List of urls here ..."></textarea>
+                        <textarea id="urlsRecache" rows="25"
+                            class="flex resize-none rounded-md w-full drop-shadow-lg text-xs p-8 text-gray-900 placeholder:text-xl "
+                            placeholder=" List of urls here ..."></textarea>
                     </div>
 
                     <div class="w-full p-8 flex-col flex">
                         <div class="w-full ">
-                            <label for="tokenRecache" class="drop-shadow-lg text-lg py-8">Paste token here : </label>
-                            <input id="tokenRecache" class="flex resize-none rounded-md w-full drop-shadow-lg text-lg p-8 text-gray-900 
-                            placeholder=" List of urls here ..."> </input>
+                            <label for="tokenRecache" class="text-2xl py-8"></label>
+                            <input id="tokenRecache"
+                                class="flex resize-none rounded-md w-full drop-shadow-lg text-lg p-8 text-gray-900 "
+                                placeholder=" Token here  ..." />
                         </div>
 
                         <button id="recache"
