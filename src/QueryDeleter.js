@@ -1,13 +1,12 @@
-class QuerySearcher {
-    searcheUrl = "https://api.prerender.io/search";
-    errorMessage = document.getElementById('errorsSearch');
-    successMessage = document.getElementById('successSearch');
-    spinner = document.getElementById('statusSearch');
-    successImage = document.getElementById('successImageSearch');
-    resultsArea = document.getElementById('urlsSearch');
+class QueryDeleter {
+    searcheUrl = "https://api.prerender.io/cache-clear";
+    errorMessage = document.getElementById('errorsClear');
+    successMessage = document.getElementById('successClear');
+    spinner = document.getElementById('statusClear');
+    successImage = document.getElementById('successImageClear');
 
     getToken = () => {
-        const token = document.getElementById('tokenSearch').value
+        const token = document.getElementById('tokenClear').value
 
         if (!token) {
             this.errorMessage.textContent = 'Please enter token'
@@ -18,10 +17,10 @@ class QuerySearcher {
     }
 
     getQuery = () => {
-        const query = document.getElementById('querySearch').value
+        const query = document.getElementById('queryClear').value
 
         if (!query) {
-            this.errorMessage.textContent = 'Please enter search query'
+            this.errorMessage.textContent = 'Please enter match query'
             return;
         }
 
@@ -31,7 +30,6 @@ class QuerySearcher {
     postData = (token, query, start) => ({
         "prerenderToken": token,
         "query": query,
-        "start": start,
     })
 
     fetchData = async (postData) => {
@@ -47,9 +45,8 @@ class QuerySearcher {
             referrerPolicy: 'no-referrer',
             body: JSON.stringify(postData)
         });
-        const body = await response.json()
 
-        return { response: response.ok, statusCode: response.status, body }
+        return { response: response.ok, statusCode: response.status }
     }
 
 
@@ -59,7 +56,6 @@ class QuerySearcher {
 
         let response = true;
         let statusCode = '';
-        let body = '';
 
         if (!token || !query) {
             return
@@ -67,7 +63,7 @@ class QuerySearcher {
 
         this.spinner.classList.toggle('hidden');
 
-        ({ response, statusCode, body } = await this.fetchData(this.postData(token, query, 0)));
+        ({ response, statusCode } = await this.fetchData(this.postData(token, query, 0)));
 
         if (!response) {
             this.spinner.classList.toggle('hidden')
@@ -75,19 +71,11 @@ class QuerySearcher {
             return;
         }
 
-        if (body.length) {
-            const urls = body.map((elem) => (elem.url))
-
-            this.resultsArea.value = urls.join('\n');
-            this.spinner.classList.toggle('hidden')
-            this.successMessage.textContent = 'Hope you like those results'
-            this.successImage.classList.toggle('hidden')
-
-            return;
-        }
-
+        const message = statusCode == 200 ? 'Cache clear queued' : 'Cache clear in progress'
         this.spinner.classList.toggle('hidden')
-        this.successMessage.textContent = 'Nothing found 🤷🏻'
+        this.successMessage.textContent = message
+        this.successImage.classList.toggle('hidden')
+
     }
 
     handleSearch = () => {

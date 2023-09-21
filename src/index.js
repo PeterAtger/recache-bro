@@ -1,6 +1,7 @@
 
 const recacher = new Recacher();
 const searcher = new QuerySearcher()
+const deleter = new QueryDeleter()
 
 document.getElementById('recache').addEventListener(
     'click',
@@ -15,6 +16,14 @@ document.getElementById('search').addEventListener(
 
     () => {
         searcher.handleSearch()
+    }
+)
+
+document.getElementById('deleter').addEventListener(
+    'click',
+
+    () => {
+        deleter.handleSearch()
     }
 )
 
