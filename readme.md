@@ -1,7 +1,5 @@
 # ReCache-Bro - Prerender.io API User Interface
 
-![ReCache-Bro](https://recache-bro.pages.dev)
-
 ReCache-Bro is a web-based user interface for Prerender.io's API, designed to simplify the process of recaching URLs in the Prerender cache. With ReCache-Bro, you can easily manage your Prerender cache, recaching specific URLs, searching for URLs, and even deleting cached URLs.
 
 ## Getting Started
